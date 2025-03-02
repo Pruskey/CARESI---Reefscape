@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants;
 
 /** Represents a differential drive style drivetrain. */
@@ -49,9 +50,9 @@ public class Drivetrain extends SubsystemBase {
     MotorControllerGroup rightGroup = new MotorControllerGroup(rightLeader, rightFollower);
   }
 
-  public void drive(Joystick m_driverController) {
-    double targetSpeed = -m_driverController.getRawAxis(1); // Get joystick input
-    double turn = m_driverController.getRawAxis(4) * 0.8;
+  public void drive(CommandXboxController m_driverController2) {
+    double targetSpeed = -m_driverController2.getRawAxis(1); // Get joystick input
+    double turn = m_driverController2.getRawAxis(4) * 0.8;
 
     // Gradually increase or decrease speed
     if (targetSpeed > previousSpeed + accelerationRate) {
